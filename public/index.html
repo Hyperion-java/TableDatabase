@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Table Management</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome for icons -->
+</head>
+<body>
+  <h1>Manage Table</h1>
+
+  <button id="addRowBtn">Add Row</button>
+
+  <table id="dataTable">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Version</th>
+        <th>Description</th>
+        <th>File</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <div id="formModal" class="modal">
+    <form id="dataForm">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required><br>
+      
+      <label for="version">Version:</label>
+      <input type="text" id="version" name="version"><br> <!-- Not required -->
+
+      <label for="description">Description:</label>
+      <textarea id="description" name="description"></textarea><br> <!-- Not required -->
+
+      <label for="file">File:</label>
+      <input type="file" id="file" name="file"><br> <!-- Not required -->
+      <p></p>
+      
+      <button type="submit">Save</button>
+      <p></p>
+      <button type="button" id="cancelBtn">Cancel</button>
+    </form>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
