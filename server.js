@@ -86,6 +86,18 @@ app.get('/uploads/:filename', (req, res) => {
 });
 
 // Bind the server to 192.168.0.170:80
-app.listen(port, '192.168.0.170', () => {
+const server = app.listen(port, '192.168.0.170', () => {
   console.log(`Server is running on http://192.168.0.170:${port}`);
+});
+
+// Listen for stop command to gracefully shut down the server
+process.stdin.on('data', (input) => {
+  const command = input.toString().trim();
+  if (command === '#stop') {
+    console.log('Server stopping...');
+    server.close(() => {
+      console.log('Server stopped.');
+      process.exit(0);
+    });
+  }
 });
